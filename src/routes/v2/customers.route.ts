@@ -1,3 +1,5 @@
+// phiên bản v2 để update nhưng chưa update
+
 import express from 'express';
 import customerController from '../../controllers/customer.controller';
 

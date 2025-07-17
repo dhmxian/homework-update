@@ -1,3 +1,6 @@
+// phiên bản v2 để update nhưng chưa update
+
+
 import express from 'express';
 import categoriesController from '../../controllers/categories.controller';
 

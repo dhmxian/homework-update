@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false}));
 
 app.get('/', (req, res) =>{
     res.status(200).json({
-        message: 'Bài tập CRUD với RESTful API',
+        message: 'HOMEWORK',
     });
 });
 
