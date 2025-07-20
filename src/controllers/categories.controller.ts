@@ -1,9 +1,9 @@
 import {Request, Response} from "express"
 import categoriesService from "../services/categories.service";
 
-const findAll = (req: Request, res: Response)=>{
+const findAll = async (req: Request, res: Response)=>{
 
-const categories = categoriesService.findAll()
+const categories = await categoriesService.findAll()
 
  res.status(200).json({
         statusCode: 200,
@@ -12,10 +12,10 @@ const categories = categoriesService.findAll()
     });
 }
 
-const findById = (req: Request, res: Response) =>{
+const findById = async (req: Request, res: Response) =>{
     const {id} = req.params;
     
-    const category = categoriesService.findById(parseInt(id))
+    const category = await categoriesService.findById(parseInt(id))
 
     res.status(200).json({
         statusCode: 200,
@@ -24,8 +24,8 @@ const findById = (req: Request, res: Response) =>{
     });
 }
 
-const create = (req: Request, res: Response) =>{
-    const category = categoriesService.create(req.body)
+const create = async (req: Request, res: Response) =>{
+    const category = await categoriesService.create(req.body)
     
     res.status(201).json({
         statusCode: 201,
@@ -34,10 +34,10 @@ const create = (req: Request, res: Response) =>{
     });
 }
 
-const updateById = (req: Request, res: Response) =>{
+const updateById = async (req: Request, res: Response) =>{
     const { id } = req.params;
 
-    const category = categoriesService.updateById(parseInt(id),req.body)
+    const category = await categoriesService.updateById(parseInt(id),req.body)
     
     res.status(200).json({
         statusCode: 200,
@@ -46,10 +46,10 @@ const updateById = (req: Request, res: Response) =>{
     });
 }
 
-const deleteById = (req: Request, res: Response) => {
+const deleteById = async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const categories = categoriesService.deleteById(parseInt(id))
+    const categories = await categoriesService.deleteById(parseInt(id))
    
     res.status(200).json({
         statusCode: 200,

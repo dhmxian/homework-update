@@ -1,9 +1,9 @@
 import {Request, Response} from "express"
 import brandsService from "../services/brands.service";
 
-const findAll = (req: Request, res: Response)=>{
+const findAll = async (req: Request, res: Response)=>{
 
-const brands = brandsService.findAll()
+const brands = await brandsService.findAll()
 
  res.status(200).json({
         statusCode: 200,
@@ -12,10 +12,10 @@ const brands = brandsService.findAll()
     });
 }
 
-const findById = (req: Request, res: Response) =>{
+const findById = async (req: Request, res: Response) =>{
     const {id} = req.params;
     
-    const brand = brandsService.findById(parseInt(id))
+    const brand = await brandsService.findById(parseInt(id))
 
     res.status(200).json({
         statusCode: 200,
@@ -24,8 +24,8 @@ const findById = (req: Request, res: Response) =>{
     });
 }
 
-const create = (req: Request, res: Response) =>{
-    const brand = brandsService.create(req.body)
+const create = async (req: Request, res: Response) =>{
+    const brand = await brandsService.create(req.body)
     
     res.status(201).json({
         statusCode: 201,
@@ -34,10 +34,10 @@ const create = (req: Request, res: Response) =>{
     });
 }
 
-const updateById = (req: Request, res: Response) =>{
+const updateById = async (req: Request, res: Response) =>{
     const { id } = req.params;
 
-    const brand = brandsService.updateById(parseInt(id),req.body)
+    const brand = await brandsService.updateById(parseInt(id),req.body)
     
     res.status(200).json({
         statusCode: 200,
@@ -46,10 +46,10 @@ const updateById = (req: Request, res: Response) =>{
     });
 }
 
-const deleteById = (req: Request, res: Response) => {
+const deleteById = async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const brands = brandsService.deleteById(parseInt(id))
+    const brands = await brandsService.deleteById(parseInt(id))
    
     res.status(200).json({
         statusCode: 200,

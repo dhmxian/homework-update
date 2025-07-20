@@ -1,9 +1,9 @@
 import {Request, Response} from "express"
 import customersService from "../services/customers.service";
 
-const findAll = (req: Request, res: Response)=>{
+const findAll = async (req: Request, res: Response)=>{
 
-const customers = customersService.findAll()
+const customers = await customersService.findAll()
 
  res.status(200).json({
         statusCode: 200,
@@ -12,10 +12,10 @@ const customers = customersService.findAll()
     });
 }
 
-const findById = (req: Request, res: Response) =>{
+const findById = async (req: Request, res: Response) =>{
     const {id} = req.params;
     
-    const customer = customersService.findById(parseInt(id))
+    const customer = await customersService.findById(parseInt(id))
 
     res.status(200).json({
         statusCode: 200,
@@ -24,8 +24,8 @@ const findById = (req: Request, res: Response) =>{
     });
 }
 
-const create = (req: Request, res: Response) =>{
-    const customer = customersService.create(req.body)
+const create = async (req: Request, res: Response) =>{
+    const customer = await customersService.create(req.body)
     
     res.status(201).json({
         statusCode: 201,
@@ -34,10 +34,10 @@ const create = (req: Request, res: Response) =>{
     });
 }
 
-const updateById = (req: Request, res: Response) =>{
+const updateById = async (req: Request, res: Response) =>{
     const { id } = req.params;
 
-    const customer = customersService.updateById(parseInt(id),req.body)
+    const customer = await customersService.updateById(parseInt(id),req.body)
     
     res.status(200).json({
         statusCode: 200,
@@ -46,10 +46,10 @@ const updateById = (req: Request, res: Response) =>{
     });
 }
 
-const deleteById = (req: Request, res: Response) => {
+const deleteById = async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const customers = customersService.deleteById(parseInt(id))
+    const customers = await customersService.deleteById(parseInt(id))
    
     res.status(200).json({
         statusCode: 200,

@@ -1,11 +1,11 @@
 import { brands } from "../databases/data";
 import createError from 'http-errors';
 
-const findAll = ()=>{
+const findAll = async ()=>{
   return brands;
 }
 
-const findById =(id: number)=>{
+const findById = async (id: number)=>{
   const brand = brands.find(cat => cat.id === (id));
 
   if (!brand) {
@@ -14,16 +14,17 @@ const findById =(id: number)=>{
     return brand
 }
 
-const create = (payload: {name: string})=>{
+const create = async (payload: {name: string, description: string})=>{
     const newBrand = {
-        id: brands.length +1,
+        id: brands.length + 1,
         name: payload.name,
+        description: payload.description,
     };
     brands.push(newBrand);
     return newBrand
 }
 
-const updateById = (id: number, payload: {name: string})=>{
+const updateById = async (id: number, payload: {name: string})=>{
 const brandIndex = brands.findIndex(cat => cat.id === (id));
 
     if (brandIndex === -1) {
@@ -35,7 +36,7 @@ const brandIndex = brands.findIndex(cat => cat.id === (id));
     return brands[brandIndex];
 }
 
-const deleteById = (id: number)=>{
+const deleteById = async (id: number)=>{
    const brandIndex = brands.findIndex(cat => cat.id === (id));
 
     if (brandIndex === -1) {
