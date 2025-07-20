@@ -1,7 +1,6 @@
 import { categories } from "../databases/data";
 import createError from 'http-errors';
 
-
 const findAll = async ()=>{
   return categories;
 }

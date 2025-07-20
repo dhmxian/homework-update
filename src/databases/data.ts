@@ -11,8 +11,8 @@ export const brands = [
     {id:1 , name: 'Trek', description: 'High-quality bikes for all terrains'},
     {id:2 , name: 'Giant', description: 'Specializing in road and mountain bikes'},
     {id:3 , name: 'Specialized', description: 'Innovative designs for cycling enthusiasts'},
-    {id:1 , name: 'Cannondale', description: 'Known for its performance-oriented bicycles'},
-    {id:1 , name: 'Scott', description: 'Offers a wide range of bicycles for various purposes'},
+    {id:4 , name: 'Cannondale', description: 'Known for its performance-oriented bicycles'},
+    {id:5 , name: 'Scott', description: 'Offers a wide range of bicycles for various purposes'},
 
 ]
 
